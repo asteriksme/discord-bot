@@ -1,0 +1,19 @@
+{
+    "env": {
+        "node": true
+    },
+    "settings": {
+        "import/internal-regex": "^@bot/",
+        "import/resolver": {
+            "alias": {
+                extensions: ['.js'],
+                map: [
+                    ["@bot", "./bot"]
+                ]
+            }
+        }
+    },
+    "globals": {
+        "__DEV__": false
+    }
+}

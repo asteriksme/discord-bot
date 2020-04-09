@@ -1,0 +1,44 @@
+{
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=12.16.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.8.7",
+    "discord.js": "^12.1.1",
+    "dotenv": "^8.2.0",
+    "eslint-plugin-react": "^7.19.0",
+    "pg": "^8.0.0",
+    "pretty-error": "^2.1.1",
+    "sequelize": "^5.21.6",
+    "sequelize-cli": "^5.5.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@thetribe/eslint-config-react": "^0.4.1",
+    "babel-jest": "^25.3.0",
+    "babel-loader": "8.1.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "eslint": "^6.8.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3"
+  },
+  "scripts": {
+    "lint": "eslint --ignore-path .gitignore --ignore-pattern \"!**/.*\" .",
+    "lint:fix": "yarn run lint:js --fix",
+    "clean": "babel-node tools/run clean",
+    "copy": "babel-node tools/run copy",
+    "bundle": "babel-node tools/run bundle",
+    "build": "babel-node tools/run build",
+    "build:stats": "yarn run build --release --analyze",
+    "start": "babel-node tools/run start",
+    "sequelize": "babel-node ./node_modules/sequelize-cli/lib/sequelize"
+  }
+}
