@@ -3,9 +3,11 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
+const commands = require('./commands.js');
 const { randomRole } = require('./config.js');
 const { getRandomColor } = require('./utils.js');
 
+const PREFIX = '!';
 const TIMER_UPDATE_RANDOM_ROLE = 20 * 1000;
 
 const client = new Discord.Client();
@@ -22,8 +24,14 @@ const init = async () => {
 client.once('ready', init);
 
 const handleMessage = (msg) => {
-  if ('ping' === msg.content) {
-    msg.reply('Pong!');
+  if (msg.content.startsWith(PREFIX)) {
+    const input = msg.content.slice(PREFIX.length).split(' ');
+    const command = input.shift();
+    const args = input.join(' ');
+
+    if (commands[command]) {
+      commands[command](msg, args);
+    }
   }
 };
 

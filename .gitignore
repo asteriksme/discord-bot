@@ -1,5 +1,6 @@
 bot/.env
 bot/config.js
+bot/database.sqlite
 build/
 node_modules/
 npm-debug.log*
