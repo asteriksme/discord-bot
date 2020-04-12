@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const commands = require('./commands.js');
+const commands = require('./commands');
 const { randomRole } = require('./config.js');
 const { getRandomColor } = require('./utils.js');
 

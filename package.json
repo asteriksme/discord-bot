@@ -9,6 +9,7 @@
     "discord.js": "^12.1.1",
     "dotenv": "^8.2.0",
     "eslint-plugin-react": "^7.19.0",
+    "lodash": "^4.17.15",
     "node-fetch": "^2.6.0",
     "pretty-error": "^2.1.1",
     "sequelize": "^5.21.6",
