@@ -1,11 +1,12 @@
 const { forOwn } = require('lodash');
 
-const { addQuote, getQuote } = require('./quote.js');
+const lastfm = require('./lastfm.js');
+const quote = require('./quote.js');
 const wtf = require('./wtf.js');
 
 const all = {
-  addQuote,
-  quote: getQuote,
+  lastfm,
+  quote,
   wtf,
 };
 

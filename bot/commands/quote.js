@@ -1,14 +1,21 @@
+const { first } = require('lodash');
 const { Op } = require('sequelize');
 const { Quotes } = require('../db.js');
 
-const addQuote = {
-  help: '`!addQuote <quote>`\n\tAjouter une citation.',
-  command: (message, text) => Quotes.create({ quote: text }),
-};
-
-const getQuote = {
-  help: '`!quote [search]`\n\tAfficher une citation aléatoire.',
+const quote = {
+  help: '`!quote [search]`\n\tAfficher une citation aléatoire.\n`!quote add <quote>`\n\tAjouter une citation.',
   command: async (message, search) => {
+    if (search && 'add' === first(search.split(' '))) {
+      if (1 === search.split(' ').length) {
+        return;
+      }
+      await Quotes.create({ quote: search.substr(search.indexOf(' ')) });
+
+      message.channel.send('Quote ajoutée.');
+
+      return;
+    }
+
     const params = {};
 
     if (search) {
@@ -30,7 +37,4 @@ const getQuote = {
   },
 };
 
-module.exports = {
-  addQuote,
-  getQuote,
-};
+module.exports = quote;
